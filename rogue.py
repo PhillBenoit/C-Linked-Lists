@@ -1,3 +1,9 @@
 #! /usr/bin/python3
 
-print('this is a rogue python file in the repository')
+import requests
+from passwords import *
+
+username = user()
+password = pw()
+
+print(requests.get('http://192.168.1.80:3000/basic-auth/user/password', auth=(username, password), timeout=1).text)
